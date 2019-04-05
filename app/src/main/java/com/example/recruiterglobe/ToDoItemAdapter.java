@@ -16,7 +16,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
     /**
      * Adapter context
      */
-    Context mContext;
+    /*Context mContext;
 
     /**
      * Adapter View layout
