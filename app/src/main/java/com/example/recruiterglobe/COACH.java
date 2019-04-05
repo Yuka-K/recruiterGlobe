@@ -3,6 +3,8 @@ package com.example.recruiterglobe;
 /**
  * Represents an item in a COACH
  */
+//Is working!
+//It is working great
 public class COACH {
 
     /**
@@ -45,7 +47,6 @@ public class COACH {
     }
 
     @Override
-    public String toString() { return getRFname(); }
 
     /**
      * Initializes a new ToDoItem
