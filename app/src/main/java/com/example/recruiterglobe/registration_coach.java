@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -45,6 +46,10 @@ import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperati
 
 public class registration_coach extends Activity {
 
+    final Button mButton = (Button) findViewById(R.id.Coach);
+
+
+
     /**
      * Client reference
      */
@@ -64,7 +69,7 @@ public class registration_coach extends Activity {
     /**
      * Adapter to sync the items list with the view
      */
-    private ToDoItemAdapter mAdapter;
+    //private ToDoItemAdapter mAdapter;
 
     /**
      * EditText containing the "New To Do" text
