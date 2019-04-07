@@ -9,5 +9,34 @@
     <string name="coach_profile">Coach Profile</string>
     <string name="todo">TODO</string>
     <string name="lastname">Lastname</string>
+    <string name="fname">Firstname</string>
+    <string name="position_tittle">Position/Tittle</string>
+    <string name="college_institution">College/Institution</string>
+    <string name="experience_stats">Experience/ Stats with current team</string>
+    <string name="team_info">TEAM</string>
+    <string name="college_info">COLLEGE</string>
+    <string name="roster_link">Roster</string>
+    <string name="team_size">Team size:</string>
+    <string name="ranking">Ranking:</string>
+    <string name="college_website">Website</string>
+    <string name="college_size">Size:</string>
+    <string name="college_location">Location:</string>
+    <string name="student_profile">Student Profile</string>
+    <string name="student_profile_pic" />
+    <string name="student_profile_pic" />
+    <string name="fname">Firstname</string>
+    <string name="lname">Lastname</string>
+    <string name="college">College/Institution:</string>
+    <string name="location">Location:</string>
+    <string name="tennis_stats">TENNIS</string>
+    <string name="personal_stats">PERSONAL</string>
+    <string name="age">Age:</string>
+    <string name="height">Height:</string>
+    <string name="country">Country:</string>
+    <string name="major">Major/Field of study</string>
+    <string name="utr_rank">UTR Rank:</string>
+    <string name="atp_points">APT Points:</string>
+    <string name="teams">Teams:</string>
+    <string name="recruit_video">Recruitment Video(link):</string>
 
 </resources>
