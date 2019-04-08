@@ -22,9 +22,9 @@
     <string name="college_size">Size:</string>
     <string name="college_location">Location:</string>
     <string name="student_profile">Student Profile</string>
-    <string name="student_profile_pic" />
-    <string name="student_profile_pic" />
-    <string name="fname">Firstname</string>
+    <string name="coach_profile_pic"/>
+    <string name="student_profile_pic"/>
+    <string name="Cfname">Firstname</string>
     <string name="lname">Lastname</string>
     <string name="college">College/Institution:</string>
     <string name="location">Location:</string>

@@ -93,12 +93,12 @@ public class registration_coach extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_to_do);
+        setContentView(R.layout.coach_registration);
 
-        mProgressBar = (ProgressBar) findViewById(R.id.loadingProgressBar);
+        //mProgressBar = (ProgressBar) findViewById(R.id.loadingProgressBar);
 
         // Initialize the progress bar
-        mProgressBar.setVisibility(ProgressBar.GONE);
+        //mProgressBar.setVisibility(ProgressBar.GONE);
 
         try {
             // Create the client instance, using the provided mobile app URL.
