@@ -46,7 +46,7 @@ import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperati
 
 public class registration_coach extends Activity {
 
-    final Button mButton = (Button) findViewById(R.id.Coach);
+    //final Button mButton = (Button) findViewById(R.id.Coach);
 
 
 
