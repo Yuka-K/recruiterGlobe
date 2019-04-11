@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -45,6 +46,10 @@ import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperati
 
 public class registration_coach extends Activity {
 
+    //final Button mButton = (Button) findViewById(R.id.Coach);
+
+
+
     /**
      * Client reference
      */
@@ -64,12 +69,18 @@ public class registration_coach extends Activity {
     /**
      * Adapter to sync the items list with the view
      */
-    private ToDoItemAdapter mAdapter;
+    //private ToDoItemAdapter mAdapter;
 
     /**
      * EditText containing the "New To Do" text
      */
-    private EditText mTextNewToDo;
+    private EditText mRFnameNewCOACH;
+    private EditText mRLnameNewCOACH;
+    private EditText mRphoneNewCOACH;
+    private EditText mREmailNewCOACH;
+    private EditText mRpasswordNewCOACH;
+    private EditText mRComfirmPasswordNewCOACH;
+    private EditText mRuniversityNewCOACH;
 
     /**
      * Progress spinner to use for table operations
@@ -82,12 +93,12 @@ public class registration_coach extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_to_do);
+        setContentView(R.layout.coach_registration);
 
-        mProgressBar = (ProgressBar) findViewById(R.id.loadingProgressBar);
+        //mProgressBar = (ProgressBar) findViewById(R.id.loadingProgressBar);
 
         // Initialize the progress bar
-        mProgressBar.setVisibility(ProgressBar.GONE);
+        //mProgressBar.setVisibility(ProgressBar.GONE);
 
         try {
             // Create the client instance, using the provided mobile app URL.
@@ -115,15 +126,21 @@ public class registration_coach extends Activity {
             //Init local storage
             initLocalStore().get();
 
-            mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
+            mRFnameNewCOACH = (EditText) findViewById(R.id.RFname);
+            mRLnameNewCOACH = (EditText) findViewById(R.id.RLname);
+            mRphoneNewCOACH = (EditText) findViewById(R.id.Rphone);
+            mREmailNewCOACH = (EditText) findViewById(R.id.REmail);
+            mRpasswordNewCOACH = (EditText) findViewById(R.id.Rpassword);
+            mRComfirmPasswordNewCOACH = (EditText) findViewById(R.id.RConfirmPassword);
+            mRuniversityNewCOACH = (EditText) findViewById(R.id.Runiversity);
 
 
             // Load the items from the mobile app backend.
-            refreshItemsFromTable();
+            //refreshItemsFromTable();
 
         } catch (MalformedURLException e) {
             createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
-        } catch (Exception e){
+        } catch (Exception e) {
             createAndShowDialog(e, "Error");
         }
     }
@@ -140,14 +157,14 @@ public class registration_coach extends Activity {
     /**
      * Select an option from the menu
      */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    //@Override
+    /*public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_refresh) {
             refreshItemsFromTable();
         }
 
         return true;
-    }
+    }*/
 
     /**
      * Mark an item as completed
@@ -155,7 +172,7 @@ public class registration_coach extends Activity {
      * @param item
      *            The item to mark
      */
-    public void checkItem(final COACH item) {
+    /*public void checkItem(final COACH item) {
         if (mClient == null) {
             return;
         }
@@ -187,7 +204,7 @@ public class registration_coach extends Activity {
 
         runAsyncTask(task);
 
-    }
+    }*/
 
     /**
      * Mark an item as completed in the Mobile Service Table
@@ -195,33 +212,39 @@ public class registration_coach extends Activity {
      * @param item
      *            The item to mark
      */
-    public void checkItemInTable(COACH item) throws ExecutionException, InterruptedException {
+    /*public void checkItemInTable(COACH item) throws ExecutionException, InterruptedException {
         COACH.update(item).get();
-    }
+    }*/
 
     /**
      * Add a new item
      *
-     * @param view
-     *            The view that originated the call
+     * @param view The view that originated the call
      */
-    public void addItem(View view) {
+    public void addData(View view) {
         if (mClient == null) {
             return;
         }
 
         // Create a new item
-        final COACH item = new COACH();
+        final COACH data = new COACH();
 
-        item.setText(mTextNewToDo.getText().toString());
-        item.setComplete(false);
+        data.setRFname(mRFnameNewCOACH.getText().toString());
+        data.setRLname(mRLnameNewCOACH.getText().toString());
+        data.setRphoneNumber(Integer.parseInt(mRphoneNewCOACH.getText().toString()));
+        data.setRemail(mREmailNewCOACH.getText().toString());
+        data.setRpassword(mRpasswordNewCOACH.getText().toString());
+        data.setRuniversity(mRuniversityNewCOACH.getText().toString());
+        data.setComplete(false);
+
+        mCoachTable.insert(data);
 
         // Insert the new item
-        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+        /*AsyncTask<Void, Void, Void, Void, Void, Void> task = new AsyncTask<Void, Void, Void, Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... params) {
                 try {
-                    final ToDoItem entity = addItemInTable(item);
+                    final COACH entity = addItemInTable(data);
 
                     runOnUiThread(new Runnable() {
                         @Override
@@ -235,29 +258,31 @@ public class registration_coach extends Activity {
                     createAndShowDialogFromTask(e, "Error");
                 }
                 return null;
-            }
-        };
-
-        runAsyncTask(task);
-
-        mTextNewToDo.setText("");
+            }*/
     }
+
+    ;
+
+    //runAsyncTask(task);
+
+    //mRFnameNewCOACH.setRFname("");
+
 
     /**
      * Add an item to the Mobile Service Table
      *
-     * @param item
+     * @param data
      *            The item to Add
      */
-    public ToDoItem addItemInTable(ToDoItem item) throws ExecutionException, InterruptedException {
-        ToDoItem entity = mToDoTable.insert(item).get();
+    /*public COACH addItemInTable(COACH data) throws ExecutionException, InterruptedException {
+        COACH entity = mCoachTable.insert(data).get();
         return entity;
-    }
+    }*/
 
     /**
      * Refresh the list with the items in the Table
      */
-    private void refreshItemsFromTable() {
+    /*private void refreshItemsFromTable() {
 
         // Get the items that weren't marked as completed and add them in the
         // adapter
@@ -267,7 +292,7 @@ public class registration_coach extends Activity {
             protected Void doInBackground(Void... params) {
 
                 try {
-                    final List<ToDoItem> results = refreshItemsFromMobileServiceTable();
+                    final List<COACH> results = refreshItemsFromMobileServiceTable();
 
                     //Offline Sync
                     //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
@@ -277,7 +302,7 @@ public class registration_coach extends Activity {
                         public void run() {
                             mAdapter.clear();
 
-                            for (ToDoItem item : results) {
+                            for (COACH item : results) {
                                 mAdapter.add(item);
                             }
                         }
@@ -291,16 +316,16 @@ public class registration_coach extends Activity {
         };
 
         runAsyncTask(task);
-    }
+    }*/
 
     /**
      * Refresh the list with the items in the Mobile Service Table
      */
 
-    private List<ToDoItem> refreshItemsFromMobileServiceTable() throws ExecutionException, InterruptedException {
-        return mToDoTable.where().field("complete").
+    /*private List<COACH> refreshItemsFromMobileServiceTable() throws ExecutionException, InterruptedException {
+        return mCoachTable.where().field("complete").
                 eq(val(false)).execute().get();
-    }
+    }*/
 
     //Offline Sync
     /**
@@ -316,6 +341,7 @@ public class registration_coach extends Activity {
 
     /**
      * Initialize local storage
+     *
      * @return
      * @throws MobileServiceLocalStoreException
      * @throws ExecutionException
@@ -384,10 +410,8 @@ public class registration_coach extends Activity {
     /**
      * Creates a dialog and shows it
      *
-     * @param exception
-     *            The exception to show in the dialog
-     * @param title
-     *            The dialog title
+     * @param exception The exception to show in the dialog
+     * @param title     The dialog title
      */
     private void createAndShowDialogFromTask(final Exception exception, String title) {
         runOnUiThread(new Runnable() {
@@ -402,14 +426,12 @@ public class registration_coach extends Activity {
     /**
      * Creates a dialog and shows it
      *
-     * @param exception
-     *            The exception to show in the dialog
-     * @param title
-     *            The dialog title
+     * @param exception The exception to show in the dialog
+     * @param title     The dialog title
      */
     private void createAndShowDialog(Exception exception, String title) {
         Throwable ex = exception;
-        if(exception.getCause() != null){
+        if (exception.getCause() != null) {
             ex = exception.getCause();
         }
         createAndShowDialog(ex.getMessage(), title);
@@ -418,10 +440,8 @@ public class registration_coach extends Activity {
     /**
      * Creates a dialog and shows it
      *
-     * @param message
-     *            The dialog message
-     * @param title
-     *            The dialog title
+     * @param message The dialog message
+     * @param title   The dialog title
      */
     private void createAndShowDialog(final String message, final String title) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -433,6 +453,7 @@ public class registration_coach extends Activity {
 
     /**
      * Run an ASync task on the corresponding executor
+     *
      * @param task
      * @return
      */
