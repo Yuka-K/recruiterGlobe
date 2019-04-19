@@ -1,10 +1,8 @@
 package com.example.recruiterglobe;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -31,14 +29,14 @@ public class MainActivity extends AppCompatActivity {
         al.add("c");
         al.add("python");
         al.add("java");
-        al.add("html");
+        boolean html = al.add("html");
         al.add("c++");
         al.add("css");
         al.add("javascript");
 
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.helloText, al );
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.helloText, al);
 
-        SwipeFlingAdapterView filingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
+        SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
 
 
         flingContainer.setAdapter(arrayAdapter);
